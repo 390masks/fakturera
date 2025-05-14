@@ -10,7 +10,7 @@ export default function TermsText({ language = 'en' }) {
     setLoading(true);
     setError(null);
     
-    axios.get(`http://localhost:3000/api/terms?lang=${language}`)
+    axios.get(`https://fakturera-backend-1.onrender.com/api/terms?lang=${language}`)
       .then(res => {
         setContent(res.data.content);
         setLoading(false);
