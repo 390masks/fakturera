@@ -8,18 +8,17 @@ export default function TermsPage() {
   const [currentLanguage, setCurrentLanguage] = useState('en');
   const navigate = useNavigate();
   useEffect(() => {
-    const setViewportHeight = () => {
+    const setVH = () => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
   
-    setViewportHeight(); // on mount
-    window.addEventListener('resize', setViewportHeight);
+    setVH(); // Run once on mount
+    window.addEventListener('resize', setVH); // Recalculate on resize
   
-    return () => {
-      window.removeEventListener('resize', setViewportHeight);
-    };
+    return () => window.removeEventListener('resize', setVH); // Cleanup
   }, []);
+  
   
   return (
     <div className="terms-page">
