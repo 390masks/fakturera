@@ -13,9 +13,10 @@
 .terms-page {
   background: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: calc(var(--vh, 1vh) * 100);; 
+  min-height: calc(var(--vh, 1vh) * 100); 
   width: 100vw;
   padding: 20px;
+  overflow: hidden;
 }
 
 /* Header Styles */
