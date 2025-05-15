@@ -250,4 +250,7 @@
     width: auto;
     padding: 30px 20px;
   }
+  .terms-header{
+    margin: 30px;
+  }
 }
