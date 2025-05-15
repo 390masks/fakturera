@@ -11,7 +11,8 @@
 
 /* Page Layout */
 .terms-page {
-  background: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg') center/cover no-repeat;
+  background: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg') no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
   width: 100vw;
   padding: 20px;
@@ -24,11 +25,14 @@
   align-items: center;
   padding: 15px 30px;
   position: relative;
+  margin: 0 50px;
 }
 
 .nav-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
 }
 
 .logo {
@@ -39,14 +43,13 @@
 
 .main-nav {
   display: flex;
-  gap: 50px;
+  gap: 40px;
 }
 
 .main-nav a {
   color: white;
   text-decoration: none;
   font-size: 16px;
-  font-weight: bold;
 }
 
 /* Language Switcher */
@@ -55,23 +58,62 @@
   align-items: center;
   gap: 8px;
   color: white;
-  font-weight: bold;
   font-size: 16px;
   cursor: pointer;
 }
 
 .flag-icon {
-  width: 34px;
-  height: 26px;
+  object-fit: cover;
+  object-position: center center;
+  width: 26px;
+  height: 18px;
+  max-width: 100%;
+  border-radius: 3px;
   border: 1px solid #f0f0f0;
-  border-radius: 2px;
 }
 
-/* Right Controls */
-.right-controls {
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.5rem;
+}
+
+.language-options {
+  font-weight: 500;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 15px;
+  position: absolute;
+  right: -13px;
+  z-index: 100;
+  margin-left: -0.75rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(17, 17, 17, 0.7), 0 4px 6px -4px rgba(34, 34, 34, 0.7);
+}
+
+.language-options li {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  color: black;
+}
+
+.language-options li:hover {
+  background-color: white;
 }
 
 /* Hamburger Menu */
@@ -94,7 +136,7 @@
 }
 
 .terms-title {
-  font-size: xx-large;
+  font-size: x-large;
   color: white;
 }
 
@@ -120,6 +162,7 @@
 .terms-content {
   background: white;
   width: 750px;
+  max-width: 100%;
   border-radius: 20px;
   margin: 0 auto;
   padding: 40px;
@@ -128,26 +171,32 @@
   line-height: 1.5;
   font-size: 14px;
   transition: width 0.6s ease-in-out;
+  text-align: center;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 1270px) {
   .nav-container {
     gap: 20px;
   }
-  
+
+  .logo {
+    display: none;
+  }
+
   .main-nav {
     display: none;
     position: absolute;
+    left: 10px;
     top: 70px;
-    right: 30px;
+    right: 70px;
     width: 280px;
     background: white;
     border-radius: 12px;
     flex-direction: column;
     padding: 15px 0;
     z-index: 1000;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     border: 1px solid #f0f0f0;
   }
 
@@ -171,13 +220,34 @@
   }
 
   .hamburger {
+    position: absolute;
+    top: 1px;
     display: block;
     font-size: 28px;
     z-index: 1001;
+    order: -1;
   }
 
+  .header {
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin: 0;
+  }
+
+  .nav-container {
+    width: 100%;
+  }
+
+  .language-dropdown {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+}
+
+@media (max-width: 800px) {
   .terms-content {
     width: auto;
-    padding: 30px;
+    padding: 30px 20px;
   }
 }
