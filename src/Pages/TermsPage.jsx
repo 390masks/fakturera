@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from "../Components/Header";
 import TermsText from "../Components/TermsText";
@@ -7,19 +7,6 @@ import '../styles/terms.css';
 export default function TermsPage() {
   const [currentLanguage, setCurrentLanguage] = useState('en');
   const navigate = useNavigate();
-  useEffect(() => {
-    const setVH = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-  
-    setVH(); // Run once on mount
-    window.addEventListener('resize', setVH); // Recalculate on resize
-  
-    return () => window.removeEventListener('resize', setVH); // Cleanup
-  }, []);
-  
-  
   return (
     <div className="terms-page">
       <Header onLanguageChange={setCurrentLanguage} />

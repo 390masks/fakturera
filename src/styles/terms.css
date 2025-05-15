@@ -27,7 +27,6 @@
     min-height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     padding: 20px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
